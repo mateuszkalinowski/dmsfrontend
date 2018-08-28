@@ -1,20 +1,41 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {LogInComponent} from './log-in/log-in.component';
-import {RegisterComponent} from './register/register.component';
-import {AppEntranceGuardService} from './app-entrance-guard.service';
+import {AppEntranceGuardService} from './guards/app-entrance-guard.service';
+import {InhabitantPageComponent} from './inhabitant/inhabitant-page/inhabitant-page.component';
+import {WorkerPageComponent} from './worker/worker-page/worker-page.component';
+import {LoginPageGuardService} from './guards/login-page-guard.service';
+import {InhabitantPageGuardService} from './guards/inhabitant-page-guard.service';
+import {WorkerPageGuardService} from './guards/worker-page-guard.service';
+import {WorkerRegisterComponent} from './worker-register/worker-register.component';
+import {InhabitantRegisterComponent} from './inhabitant/inhabitant-register/inhabitant-register.component';
+import {AdminPageGuardService} from './guards/admin-page-guard.service';
+import {AdminPageComponent} from './admin-page/admin-page.component';
+import {InhabitantNewsPageComponent} from './inhabitant/inhabitant-news-page/inhabitant-news-page.component';
+import {InhabitantNewRequestPageComponent} from './inhabitant/inhabitant-new-request-page/inhabitant-new-request-page.component';
+import {InhabitantRequestsPageComponent} from './inhabitant/inhabitant-requests-page/inhabitant-requests-page.component';
+import {InhabitantSettingsPageComponent} from './inhabitant/inhabitant-settings-page/inhabitant-settings-page.component';
+import {InhabitantRequestDetailsComponent} from './inhabitant/inhabitant-request-details/inhabitant-request-details.component';
 
 const routes: Routes = [
   { path: '', component: LogInComponent, canActivate: [AppEntranceGuardService] },
-  { path: 'login', component: LogInComponent},
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LogInComponent, canActivate: [LoginPageGuardService] },
+  { path: 'workerRegistration', component: WorkerRegisterComponent },
+  { path: 'inhabitantRegistration', component: InhabitantRegisterComponent},
+  { path: 'inhabitantPage', component: InhabitantPageComponent, canActivate: [InhabitantPageGuardService],
+    children: [
+      { path: 'news', component: InhabitantNewsPageComponent },
+      { path: 'newRequest', component: InhabitantNewRequestPageComponent },
+      { path: 'requests', component: InhabitantRequestsPageComponent },
+      { path: 'settings', component: InhabitantSettingsPageComponent },
+      { path: 'requests/:id', component: InhabitantRequestDetailsComponent },
+    ]},
+  { path: 'workerPage', component: WorkerPageComponent, canActivate: [WorkerPageGuardService]},
+  { path: 'adminPage', component: AdminPageComponent, canActivate: [AdminPageGuardService]},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

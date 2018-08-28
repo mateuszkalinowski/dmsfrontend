@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="src/styles.css">
+<div class="row">
+  <div class="col s3">
+    <div class="collection">
+      <a routerLink="/inhabitantPage/news" href="" class="collection-item black-text">Aktualności</a>
+      <a routerLink="/inhabitantPage/newRequest" href="" class="collection-item black-text">Nowe zgłoszenie</a>
+      <a routerLink="/inhabitantPage/requests" class="collection-item active blue-grey">Moje zgłoszenia</a>
+      <a routerLink="/inhabitantPage/settings" class="collection-item black-text">Ustawienia</a>
+    </div>
+  </div>
+  <div class="col s9">
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <h5>Lista zgłoszeń:</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <table>
+          <thead>
+          <tr>
+            <th>Tytuł</th>
+            <th>Kategoria</th>
+            <th>Zgłoszono</th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let record of requests">
+            <td>{{record.title}}</td>
+            <td>{{record.categoryName}}</td>
+            <td>{{record.time}}</td>
+            <td>
+              <button class="btn blue-grey" routerLink="/inhabitantPage/requests/{{record.id}}">Szczegóły</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s10 offset-s1 center-align">
+        <ul *ngIf="numberOfPages > 1" class="pagination">
+          <li *ngIf="activePage>0" class="waves-effect"><a (click)="showPage(activePage-1)"><i class="material-icons">chevron_left</i></a>
+          </li>
+          <li *ngIf="activePage === 0" class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+          <li *ngFor="let page of paginationInfo.pagesBeforeActive" class="waves-effect"><a (click)="showPage(page)">{{page+1}}</a>
+          </li>
+          <li class="active blue-grey"><a (click)="showPage(activePage)">{{activePage+1}}</a></li>
+          <li *ngFor="let page of paginationInfo.pagesAfterActive" class="waves-effect"><a (click)="showPage(page)">{{page+1}}</a>
+          </li>
+          <li *ngIf="activePage<numberOfPages-1" class="waves-effect"><a (click)="showPage(activePage+1)"><i
+            class="material-icons">chevron_right</i></a></li>
+          <li *ngIf="activePage === numberOfPages-1" class="disabled"><a><i class="material-icons">chevron_right</i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

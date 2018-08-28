@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="src/styles.css">
+<div class="row">
+  <div class="col s3">
+    <div class="collection">
+      <a routerLink="/inhabitantPage/news" href="" class="collection-item black-text">Aktualności</a>
+      <a routerLink="/inhabitantPage/newRequest" href="" class="collection-item black-text">Nowe zgłoszenie</a>
+      <a routerLink="/inhabitantPage/requests" class="collection-item black-text">Moje zgłoszenia</a>
+      <a routerLink="/inhabitantPage/settings" class="collection-item black-text">Ustawienia</a>
+    </div>
+  </div>
+  <div class="col s9">
+    <div class="row">
+      <div class="col s7 offset-s1 center-align">
+        <h5>Wybrane zgłoszenie:</h5>
+        <table>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">title</i>
+            </td>
+            <td>
+              Tytuł:
+            </td>
+            <td>
+              {{request.title}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">category</i>
+            </td>
+            <td>
+              Kategoria:
+            </td>
+            <td>
+              {{request.category.category}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">date_range</i>
+            </td>
+            <td>
+              Opublikowano:
+            </td>
+            <td>
+              {{request.timeStamp}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">insert_comment</i>
+            </td>
+            <td>
+              Komentarz:
+            </td>
+            <td>
+              {{request.comment}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">bookmark</i>
+            </td>
+            <td>
+              Status:
+            </td>
+            <td>
+              {{request.status}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">subject</i>
+            </td>
+            <td>
+              Treść:
+            </td>
+            <td>
+              {{request.content}}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col s9 center-align">
+          <button (click)="removeRequest()" class="btn red" style="margin-top: 30px">Usuń</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

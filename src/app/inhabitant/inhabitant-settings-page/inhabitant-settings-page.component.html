@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="src/styles.css">
+<div class="row">
+  <div class="col s3">
+    <div class="collection">
+      <a routerLink="/inhabitantPage/news" class="collection-item black-text">Aktualności</a>
+      <a routerLink="/inhabitantPage/newRequest" class="collection-item black-text">Nowe zgłoszenie</a>
+      <a routerLink="/inhabitantPage/requests" class="collection-item black-text">Moje zgłoszenia</a>
+      <a routerLink="/inhabitantPage/settings" class="collection-item active blue-grey">Ustawienia</a>
+    </div>
+  </div>
+  <div class="col s9">
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <h5>Podstawowe dane</h5>
+        <table>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">person_outline</i>
+            </td>
+            <td>
+              Imię:
+            </td>
+            <td>
+              {{name}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">person</i>
+            </td>
+            <td>
+              Nazwisko:
+            </td>
+            <td>
+              {{surname}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">mail_outline</i>
+            </td>
+            <td>
+              Adres e-mail:
+            </td>
+            <td>
+              {{emailAddress}}
+            </td>
+          </tr>
+          <tr>
+            <td class="center-align">
+              <i class="material-icons prefix">person_pin_circle</i>
+            </td>
+            <td>
+              Pokój:
+            </td>
+            <td>
+              {{roomNumber}}
+            </td>
+          </tr>
+        </table>
+        <p>Jeśli widzisz błąd w swoich danych skontaktuj się z administratorem</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <h5>Zmień hasło</h5>
+      </div>
+      <div class="row">
+        <div class="col s6 offset-s3 center-align">
+          <form>
+            <div class="input-field">
+              <i class="material-icons prefix">lock_open</i>
+              <label for="oldPassword"><b>Poprzednie hasło:</b></label>
+              <input [(ngModel)]="passwordChangeData.oldPassword" class="form-control" type="password" id="oldPassword" name="oldPassword"/><br/>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">lock_outline</i>
+              <label for="newPassword"><b>Nowe hasło:</b></label>
+              <input [(ngModel)]="passwordChangeData.newPassword" class="form-control" type="password" id="newPassword" name="newPassword"/><br/>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">lock_outline</i>
+              <label for="newPassword2"><b>Powtórz nowe hasło:</b></label>
+              <input [(ngModel)]="passwordRepeat" class="form-control" type="password" id="newPassword2" name="newPassword2"/><br/>
+            </div>
+            <div class="input-field">
+              {{message}}
+            </div>
+            <input (click)="changePassword()" class="btn btn-large blue-grey" type="submit" value="Zmień"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

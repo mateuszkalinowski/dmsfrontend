@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="src/styles.css">
+<body class="container">
+<div class="row center-align">
+  <h3>
+    Zarejestruj się
+  </h3>
+  <form>
+    <div class="row">
+      <div class="input-field col s4 offset-s2">
+        <i class="material-icons prefix">account_circle</i>
+        <label for="first_name">Imię</label>
+        <input [(ngModel)]="inhabitantRegistrationData.firstName" id="first_name" name="first_name" type="text" class="validate">
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+        <label for="last_name">Nazwisko</label>
+        <input [(ngModel)]="inhabitantRegistrationData.lastName" id="last_name" name="last_name" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="input-field col s4 offset-s2">
+        <i class="material-icons prefix">mail</i>
+        <label for="email">Adres e-mail</label>
+        <input [(ngModel)]="inhabitantRegistrationData.email" id="email" type="text" name="email" class="validate">
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">repeat</i>
+        <label for="email2">Powtórz e-mail</label>
+        <input [(ngModel)]="confirmEmail" id="email2" type="text" name="email" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 offset-s2">
+        <i class="material-icons prefix">lock</i>
+        <label for="password">Hasło</label>
+        <input [(ngModel)]="inhabitantRegistrationData.password" id="password" type="password" name="password" class="validate">
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">repeat</i>
+        <label for="password2">Powtórz Hasło</label>
+        <input [(ngModel)]="confirmPassword" id="password2" type="password" name="password" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <i class="material-icons prefix">room</i>
+        <label for="room_number">Numer pokoju</label>
+        <input [(ngModel)]="inhabitantRegistrationData.roomNumber" id="room_number" type="text" name="room_number" class="validate">
+      </div>
+    </div>
+    <button class="btn btn-large blue" (click)="register()">Zarejestruj się</button>
+  </form>
+  <div class="row">
+    <div class="col s4 offset-s4">
+      {{message}}
+    </div>
+  </div>
+</div>
+<div class="row center-align">
+  <button class="btn btn-large blue" routerLink="/">Powrót</button>
+</div>
+</body>

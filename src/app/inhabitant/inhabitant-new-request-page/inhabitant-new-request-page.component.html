@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="src/styles.css">
+<div class="row">
+  <div class="col s3">
+    <div class="collection">
+      <a routerLink="/inhabitantPage/news" href="" class="collection-item black-text">Aktualności</a>
+      <a routerLink="/inhabitantPage/newRequest" class="collection-item active blue-grey">Nowe zgłoszenie</a>
+      <a routerLink="/inhabitantPage/requests" class="collection-item black-text">Moje zgłoszenia</a>
+      <a routerLink="/inhabitantPage/settings" class="collection-item black-text">Ustawienia</a>
+    </div>
+  </div>
+  <div class="col s9">
+    <div class="col s8 offset-s2 center-align">
+      <h5>Utwórz nowe zgłoszenie:</h5>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <i class="material-icons prefix">title</i>
+        <label for="title">Tytuł zgłoszenia</label>
+        <input [(ngModel)]="newRequest.title" id="title" name="first_name" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3 offset-s3">
+        <label style="margin-left: 40px">Kategoria zgłoszenia</label>
+        <i class="material-icons prefix">category</i>
+      </div>
+      <div class="input-field col s3">
+        <select id="category" #selectedCategory>
+          <option *ngFor="let category of categories" value=category>{{category}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <i class="material-icons prefix">subject</i>
+        <label for="textarea">Opis problemu</label>
+        <textarea [(ngModel)]="newRequest.description" id="textarea" class="materialize-textarea"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+        <div class="row">
+          {{message}}
+        </div>
+        <button class="btn blue-grey" (click)="send(selectedCategory.selectedIndex)">Wyślij
+        <i class="material-icons right">send</i> </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cos s8 offset-s1 center-align">
+      </div>
+    </div>
+
+  </div>
+</div>
+

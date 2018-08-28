@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {LoginData} from '../dtos/loginData';
+import {ApiService} from '../api.service';
+import {CurrentUserService} from '../current-user.service';
+import {Router} from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +12,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+  @Input() loginData: LoginData;
+
+  errorMessage: string;
+
+  constructor(
+    private apiService: ApiService,
+    private currentUser: CurrentUserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.errorMessage = '';
+    this.loginData = new LoginData();
   }
 
+  login() {
+    this.apiService.callApi('api/login', 'POST', this.loginData, null)
+      .then(data => {
+          this.currentUser.token = data.token;
+          this.errorMessage = '';
+
+          this.apiService.callApi('api/info', 'GET', null, this.currentUser.token)
+            .then( loggedInUser => {
+              this.currentUser.email = this.loginData.email;
+              this.currentUser.firstname = loggedInUser.firstname;
+              this.currentUser.lastname = loggedInUser.lastname;
+              this.currentUser.role = loggedInUser.userRoles[0].userRole;
+              this.router.navigate(['/']);
+            }
+          ).catch(loggedInUser => {
+            this.errorMessage = 'Nie udało się zalogować';
+          });
+      }).catch(
+        data => {
+          this.errorMessage = 'Nazwa użytkownika lub hasło są niepoprawne';
+        }
+    );
+  }
 }
