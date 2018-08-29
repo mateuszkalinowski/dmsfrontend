@@ -54,6 +54,9 @@ export class InhabitantNewRequestPageComponent implements OnInit, AfterViewInit 
   }
 
   ngAfterViewInit(): void {
+    $(document).ready(function() {
+      $('input#title, textarea#textarea').characterCounter();
+    });
   }
 
 }

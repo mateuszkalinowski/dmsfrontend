@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'settings', component: InhabitantSettingsPageComponent },
       { path: 'requests/:id', component: InhabitantRequestDetailsComponent },
     ]},
-  { path: 'workerPage', component: WorkerPageComponent, canActivate: [WorkerPageGuardService]},
+  { path: 'workerPage', component: WorkerPageComponent, canActivate: [WorkerPageGuardService],},
   { path: 'adminPage', component: AdminPageComponent, canActivate: [AdminPageGuardService]},
 ];
 
