@@ -6,7 +6,10 @@
     </div>
     <div class="row">
       <div class="col s12 center-align">
-        <table>
+        <h5 *ngIf="numberOfPages === 0">
+          Lista zgłoszeń jest pusta.
+        </h5>
+        <table *ngIf="numberOfPages > 0">
           <thead>
           <tr>
             <th>Tytuł</th>

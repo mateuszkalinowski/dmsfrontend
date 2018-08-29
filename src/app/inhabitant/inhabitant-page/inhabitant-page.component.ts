@@ -27,7 +27,7 @@ export class InhabitantPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     $('.dropdown-trigger').dropdown();
-    $(document).ready(function(){
+    $(document).ready(function() {
       $('.fixed-action-btn').floatingActionButton();
     });
   }

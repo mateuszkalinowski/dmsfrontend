@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../../api.service';
 import {CurrentUserService} from '../../current-user.service';
 import {Router} from '@angular/router';
 import {PageRequest} from '../../dtos/pageRequest';
 import {PaginationInfo} from '../../dtos/paginationInfo';
 import {PaginationService} from '../../utils/pagination.service';
+declare var $: any;
 
 @Component({
   selector: 'app-inhabitant-news-page',
@@ -12,6 +13,8 @@ import {PaginationService} from '../../utils/pagination.service';
   styleUrls: ['./inhabitant-news-page.component.css']
 })
 export class InhabitantNewsPageComponent implements OnInit {
+
+  @ViewChild('navigationNews') navigationNews: ElementRef;
 
   announcements: any;
   numberOfItemsOnPage: number;
@@ -29,9 +32,30 @@ export class InhabitantNewsPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.numberOfItemsOnPage = 2;
+    this.numberOfItemsOnPage = 4;
     this.paginationInfo = new PaginationInfo();
     this.showPage(0);
+
+    $('#navigationNews').removeClass();
+    $('#navigationNewRequest').removeClass();
+    $('#navigationRequests').removeClass();
+    $('#navigationSettings').removeClass();
+
+    $('#navigationNews').addClass('collection-item');
+    $('#navigationNews').addClass('black-text');
+    $('#navigationNewRequest').addClass('collection-item');
+    $('#navigationNewRequest').addClass('black-text');
+    $('#navigationRequests').addClass('collection-item');
+    $('#navigationRequests').addClass('black-text');
+    $('#navigationSettings').addClass('collection-item');
+    $('#navigationSettings').addClass('black-text');
+
+    $('#navigationNews').addClass('blue-grey');
+    $('#navigationNews').addClass('active');
+    $('#navigationNews').removeClass('black-text');
+
+
+
   }
 
   showPage(pageNumber: number) {
