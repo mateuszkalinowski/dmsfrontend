@@ -1,41 +1,42 @@
-<link rel="stylesheet" href="src/styles.css">
-<body class="container">
-<div class="row">
-  <div class="col-12">
-    <nav>
-      <div class="nav-wrapper blue-grey">
-        <a href="#" class="brand-logo left" style="margin-left: 10px">Dormitory Maintenance System</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="waves-effect waves-light btn red" (click)="logout()">Wyloguj się</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</div>
+<!--<link rel="stylesheet" href="src/styles.css">-->
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Dormitory Maintenance System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/inhabitantPage/news">Aktualności</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Zgłoszenia
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/inhabitantPage/newRequest">Nowe zgłoszenia</a>
+            <a class="dropdown-item" routerLink="/inhabitantPage/requests">Moje zgłoszenia</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/inhabitantPage/settings">Ustawienia</a>
+        </li>
 
-<div class="row">
-  <div class="col s3">
-    <div class="collection">
-      <a id="navigationNews" routerLink="/inhabitantPage/news" href="" class="collection-item black-text" >Aktualności</a>
-      <a id="navigationNewRequest" routerLink="/inhabitantPage/newRequest" class="collection-item black-text">Nowe zgłoszenie</a><!--active blue-grey-->
-      <a id="navigationRequests" routerLink="/inhabitantPage/requests" class="collection-item black-text">Moje zgłoszenia</a>
-      <a id="navigationSettings" routerLink="/inhabitantPage/settings" class="collection-item black-text">Ustawienia</a>
+      </ul>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="form-inline">
+        <input class="btn btn-danger btn-md btn-block" type="submit" value="Wyloguj" (click)="logout()"/>
+      </li>
+    </ul>
   </div>
-  <div class="col s9">
-    <router-outlet></router-outlet>
-  </div>
-</div>
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large red" routerLink="/inhabitantPage/newRequest">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-  <!--<ul>-->
-    <!--&lt;!&ndash;<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>&ndash;&gt;-->
-    <!--<li><a class="btn-floating green" ><i class="material-icons">publish</i></a></li>-->
-    <!--&lt;!&ndash;<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>&ndash;&gt;-->
-  <!--</ul>-->
-</div>
+</nav>
 
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 </body>

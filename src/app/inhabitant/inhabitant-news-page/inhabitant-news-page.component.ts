@@ -36,23 +36,23 @@ export class InhabitantNewsPageComponent implements OnInit {
     this.paginationInfo = new PaginationInfo();
     this.showPage(0);
 
-    $('#navigationNews').removeClass();
-    $('#navigationNewRequest').removeClass();
-    $('#navigationRequests').removeClass();
-    $('#navigationSettings').removeClass();
-
-    $('#navigationNews').addClass('collection-item');
-    $('#navigationNews').addClass('black-text');
-    $('#navigationNewRequest').addClass('collection-item');
-    $('#navigationNewRequest').addClass('black-text');
-    $('#navigationRequests').addClass('collection-item');
-    $('#navigationRequests').addClass('black-text');
-    $('#navigationSettings').addClass('collection-item');
-    $('#navigationSettings').addClass('black-text');
-
-    $('#navigationNews').addClass('blue-grey');
-    $('#navigationNews').addClass('active');
-    $('#navigationNews').removeClass('black-text');
+    // $('#navigationNews').removeClass();
+    // $('#navigationNewRequest').removeClass();
+    // $('#navigationRequests').removeClass();
+    // $('#navigationSettings').removeClass();
+    //
+    // $('#navigationNews').addClass('collection-item');
+    // $('#navigationNews').addClass('black-text');
+    // $('#navigationNewRequest').addClass('collection-item');
+    // $('#navigationNewRequest').addClass('black-text');
+    // $('#navigationRequests').addClass('collection-item');
+    // $('#navigationRequests').addClass('black-text');
+    // $('#navigationSettings').addClass('collection-item');
+    // $('#navigationSettings').addClass('black-text');
+    //
+    // $('#navigationNews').addClass('blue-grey');
+    // $('#navigationNews').addClass('active');
+    // $('#navigationNews').removeClass('black-text');
 
 
 

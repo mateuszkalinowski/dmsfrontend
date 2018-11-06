@@ -50,39 +50,39 @@ export class InhabitantNewRequestPageComponent implements OnInit, AfterViewInit 
     this.newRequest.title = '';
     this.newRequest.description = '';
 
-    $('#navigationNews').removeClass();
-    $('#navigationNewRequest').removeClass();
-    $('#navigationRequests').removeClass();
-    $('#navigationSettings').removeClass();
-
-    $('#navigationNews').addClass('collection-item');
-    $('#navigationNews').addClass('black-text');
-    $('#navigationNewRequest').addClass('collection-item');
-    $('#navigationNewRequest').addClass('black-text');
-    $('#navigationRequests').addClass('collection-item');
-    $('#navigationRequests').addClass('black-text');
-    $('#navigationSettings').addClass('collection-item');
-    $('#navigationSettings').addClass('black-text');
-
-    $('#navigationNewRequest').addClass('blue-grey');
-    $('#navigationNewRequest').addClass('active');
-    $('#navigationNewRequest').removeClass('black-text');
+    // $('#navigationNews').removeClass();
+    // $('#navigationNewRequest').removeClass();
+    // $('#navigationRequests').removeClass();
+    // $('#navigationSettings').removeClass();
+    //
+    // $('#navigationNews').addClass('collection-item');
+    // $('#navigationNews').addClass('black-text');
+    // $('#navigationNewRequest').addClass('collection-item');
+    // $('#navigationNewRequest').addClass('black-text');
+    // $('#navigationRequests').addClass('collection-item');
+    // $('#navigationRequests').addClass('black-text');
+    // $('#navigationSettings').addClass('collection-item');
+    // $('#navigationSettings').addClass('black-text');
+    //
+    // $('#navigationNewRequest').addClass('blue-grey');
+    // $('#navigationNewRequest').addClass('active');
+    // $('#navigationNewRequest').removeClass('black-text');
 
     this.apiService.callApi('api/categories', 'GET', null, this.currentUser.token).then(
       data => {
         this.categories = data;
-        $(document).ready(function() {
-          $('select').formSelect();
-        });
+        // $(document).ready(function() {
+        //   $('select').formSelect();
+        // });
       }
     );
 
   }
 
   ngAfterViewInit(): void {
-    $(document).ready(function() {
-      $('input#title, textarea#textarea').characterCounter();
-    });
+    // $(document).ready(function() {
+    //   $('input#title, textarea#textarea').characterCounter();
+    // });
   }
 
 }

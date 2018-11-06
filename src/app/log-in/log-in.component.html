@@ -1,11 +1,16 @@
-<link rel="stylesheet" href="src/styles.css">
 <body>
-<div class="container">
 
-  <div class="row">
-    <div class="col s4 offset-s4 center-align">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Dormitory Maintenance System</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-sm-4 offset-sm-4 text-center">
       <h3>Zaloguj się</h3>
-      <div class="input-field">
+      <div class="form-group">
         <form>
           <div class="input-field">
             <label for="username"><b>Nazwa użytkownika:</b></label>
@@ -15,24 +20,28 @@
             <label for="password"><b>Hasło:</b></label>
             <input [(ngModel)]="loginData.password" class="form-control" type="password" id="password" name="password" /><br/>
           </div>
-          <input (click)="login()" class="btn btn-large blue-grey" type="submit" value="Zaloguj się"/>
+          <input (click)="login()"  class="btn-dark btn-block btn-lg blue-grey" type="submit" value="Zaloguj się"/>
         </form>
         {{errorMessage}}
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col s4 offset-s4 center-align">
+  <div class="row mt-3">
+    <div class="col-md-4 mx-auto text-center">
       <h5>
         Zarejestruj się jako:
       </h5>
     </div>
-    <div class="col s2 offset-s4 center-align">
-      <button class="btn btn-large blue-grey" routerLink="/inhabitantRegistration">Mieszkaniec</button>
     </div>
-    <div class="col s2 center-align">
-      <button class="btn btn-large blue-grey" routerLink="/workerRegistration">Pracownik</button>
+  <div class="row mt-3">
+    <div class="col-md4 mx-auto text-center">
+    <div class="form-group">
+      <button class="btn-dark btn-block btn-lg" routerLink="/inhabitantRegistration">Mieszkaniec</button>
+    </div>
+    <div class="form-group">
+      <button class="btn-dark btn-block btn-lg" routerLink="/workerRegistration">Pracownik</button>
+    </div>
     </div>
   </div>
 </div>

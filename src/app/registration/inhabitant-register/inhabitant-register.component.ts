@@ -35,9 +35,9 @@ export class InhabitantRegisterComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    $(document).ready(function() {
-      $('select').formSelect();
-    });
+    // $(document).ready(function() {
+    //   $('select').formSelect();
+    // });
   }
 
 }

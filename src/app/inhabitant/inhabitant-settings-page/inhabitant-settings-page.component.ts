@@ -36,23 +36,23 @@ export class InhabitantSettingsPageComponent implements OnInit {
     this.surname = this.currentUser.lastname;
     this.emailAddress = this.currentUser.email;
 
-    $('#navigationNews').removeClass();
-    $('#navigationNewRequest').removeClass();
-    $('#navigationRequests').removeClass();
-    $('#navigationSettings').removeClass();
-
-    $('#navigationNews').addClass('collection-item');
-    $('#navigationNews').addClass('black-text');
-    $('#navigationNewRequest').addClass('collection-item');
-    $('#navigationNewRequest').addClass('black-text');
-    $('#navigationRequests').addClass('collection-item');
-    $('#navigationRequests').addClass('black-text');
-    $('#navigationSettings').addClass('collection-item');
-    $('#navigationSettings').addClass('black-text');
-
-    $('#navigationSettings').addClass('blue-grey');
-    $('#navigationSettings').addClass('active');
-    $('#navigationSettings').removeClass('black-text');
+    // $('#navigationNews').removeClass();
+    // $('#navigationNewRequest').removeClass();
+    // $('#navigationRequests').removeClass();
+    // $('#navigationSettings').removeClass();
+    //
+    // $('#navigationNews').addClass('collection-item');
+    // $('#navigationNews').addClass('black-text');
+    // $('#navigationNewRequest').addClass('collection-item');
+    // $('#navigationNewRequest').addClass('black-text');
+    // $('#navigationRequests').addClass('collection-item');
+    // $('#navigationRequests').addClass('black-text');
+    // $('#navigationSettings').addClass('collection-item');
+    // $('#navigationSettings').addClass('black-text');
+    //
+    // $('#navigationSettings').addClass('blue-grey');
+    // $('#navigationSettings').addClass('active');
+    // $('#navigationSettings').removeClass('black-text');
 
 
     this.apiService.callApi('api/info', 'GET', null, this.currentUser.token)

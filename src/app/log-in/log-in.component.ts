@@ -27,6 +27,10 @@ export class LogInComponent implements OnInit {
     this.loginData = new LoginData();
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
   login() {
     this.apiService.callApi('api/login', 'POST', this.loginData, null)
       .then(data => {
@@ -38,7 +42,7 @@ export class LogInComponent implements OnInit {
               this.currentUser.email = this.loginData.email;
               this.currentUser.firstname = loggedInUser.firstname;
               this.currentUser.lastname = loggedInUser.lastname;
-              this.currentUser.role = loggedInUser.userRoles[0].userRole;
+              this.currentUser.role = loggedInUser.roles[0].userRole;
               this.router.navigate(['/']);
             }
           ).catch(loggedInUser => {
